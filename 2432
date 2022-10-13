@@ -1,0 +1,20 @@
+class Solution {
+public int hardestWorker(int n, int[][] arr) {
+int max=0;
+int max_id=-1;
+
+   int start=0;
+   for(int i=0;i<arr.length;i++){
+    int time=arr[i][1]-start;
+    if(time>max){
+        max=time;
+        max_id=arr[i][0];
+    }else if(time==max){
+        if(arr[i][0]<max_id){
+            max_id=arr[i][0];
+        }
+    }
+        start=arr[i][1];
+   }
+    return max_id;
+}
